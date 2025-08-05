@@ -52,7 +52,7 @@ function FormularioUsuario() {
               id="email"
               defaultValue={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="email@mail.com"
+              placeholder="seuemail@mail.com"
               required
             />
           </div>
