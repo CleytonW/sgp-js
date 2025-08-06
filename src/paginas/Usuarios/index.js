@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { listarUsuarios } from "../../servicos/usuarios";
 import { useNavigate } from "react-router-dom";
-// import Cabecalho from "../../componentes/Cabecalho";
-// import Rodape from "../../componentes/Rodape";
+import Cabecalho from "../../componentes/Cabecalho";
+import Rodape from "../../componentes/Rodape";
 
 function Usuarios() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function Usuarios() {
 
   return (
     <>
-      {/* <Cabecalho /> */}
+      <Cabecalho />
       <section className="container mt-3" id="usuarios">
         <div className="d-flex justify-content-between">
           <h1>Usuários Cadastrados</h1>
@@ -66,7 +66,7 @@ function Usuarios() {
           </tbody>
         </table>
       </section>
-      {/* <Rodape /> */}
+      <Rodape />
     </>
   );
 }
