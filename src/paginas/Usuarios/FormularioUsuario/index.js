@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Cabecalho from "../../../componentes/Cabecalho";
+import Rodape from "../../../componentes/Rodape";
+
 
 function FormularioUsuario() {
   const [nome, setNome] = useState("");
@@ -10,7 +13,7 @@ function FormularioUsuario() {
 
   return (
     <>
-      {/* <Cabecalho /> */}
+      <Cabecalho />
       <section className="container mt-3" id="novo-usuario">
         <h1>Dados do Usuário</h1>
         <form className="row g-3" onSubmit={() => {}}>
@@ -110,7 +113,7 @@ function FormularioUsuario() {
         </form>
       </section>
 
-      {/* <Rodape /> */}
+      <Rodape />
     </>
   );
 }
