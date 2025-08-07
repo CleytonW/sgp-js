@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { listarUsuarios } from "../../servicos/usuarios";
+import { deletarUsuario, listarUsuarios } from "../../servicos/usuarios";
 import { useNavigate } from "react-router-dom";
 import Cabecalho from "../../componentes/Cabecalho";
 import Rodape from "../../componentes/Rodape";
@@ -14,6 +14,12 @@ function Usuarios() {
 
   const redirecionarParaNovoUsuario = () => {
     navigate("/usuarios/novo");
+  };
+
+  const excluirUsuario = async (id) => {
+    await deletarUsuario(id);
+
+    window.location.reload();
   };
 
   return (
@@ -53,10 +59,10 @@ function Usuarios() {
                 <td>{usuario.status}</td>
                 <td>
                   <div className="btn-group">
-                    <button className="btn btn-primary" onClick={() => {}}>
+                    <button className="btn btn-primary" onClick={() => navigate(`/usuarios/${usuario.id}`)}>
                       Editar
                     </button>
-                    <button className="btn btn-danger" onClick={() => {}}>
+                    <button className="btn btn-danger" onClick={() => excluirUsuario(usuario.id)}>
                       Excluir
                     </button>
                   </div>

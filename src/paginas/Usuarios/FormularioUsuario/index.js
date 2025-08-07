@@ -1,9 +1,20 @@
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import Cabecalho from "../../../componentes/Cabecalho";
 import Rodape from "../../../componentes/Rodape";
+import { atualizarUsuario, buscarUsuarioPeloId, cadastrarUsuario } from "../../../servicos/usuarios";
+import { useNavigate, useParams } from "react-router-dom";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 
 function FormularioUsuario() {
+  const { id } = useParams();
+  useEffect(() => {
+    if (id) {
+      buscarUsuarioPeloId(id, setNome, setCpf, setEmail, setSenha, setDataNascimento, setStatus);
+    }
+  }, [])
+
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [email, setEmail] = useState("");
@@ -11,12 +22,38 @@ function FormularioUsuario() {
   const [dataNascimento, setDataNascimento] = useState("");
   const [status, setStatus] = useState("");
 
+
+
+  const enviarFormulario = async (e) => {
+    e.preventDefault();
+    const usuario = {
+      nome,
+      cpf,
+      email,
+      senha,
+      dataNascimento: format(dataNascimento, "dd/MM/yyyy", { locale: ptBR }),
+      status
+    }
+
+    if (id) {
+      await atualizarUsuario(id, usuario, navigate);
+    } else {
+      await cadastrarUsuario(usuario, navigate);
+    }
+  }
+
+  const navigate = useNavigate();
+
+  const cancelarFormulario = () => {
+    navigate("/usuarios");
+  }
+
   return (
     <>
       <Cabecalho />
       <section className="container mt-3" id="novo-usuario">
         <h1>Dados do Usuário</h1>
-        <form className="row g-3" onSubmit={() => {}}>
+        <form className="row g-3" onSubmit={enviarFormulario}>
           <div className="col-md-6 col-12">
             <label htmlFor="nome" className="form-label">
               Nome
@@ -64,7 +101,7 @@ function FormularioUsuario() {
               Senha
             </label>
             <input
-              type="senha"
+              type="password"
               className="form-control"
               id="senha"
               defaultValue={senha}
@@ -93,7 +130,7 @@ function FormularioUsuario() {
             <select
               id="status"
               className="form-select"
-              defaultValue={status}
+              value={status}
               onChange={(e) => setStatus(e.target.value)}
               required
             >
@@ -106,7 +143,7 @@ function FormularioUsuario() {
             <button type="submit" className="btn btn-primary">
               Salvar
             </button>
-            <button className="btn btn-outline-primary ms-2" onClick={() => {}}>
+            <button className="btn btn-outline-primary ms-2" onClick={cancelarFormulario}>
               Cancelar
             </button>
           </div>

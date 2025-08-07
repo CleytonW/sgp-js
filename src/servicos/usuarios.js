@@ -2,30 +2,37 @@ import { api } from "./api";
 
 export async function listarUsuarios(setUsuarios) {
     await api.get('/usuarios')
-                .then((response) => setUsuarios(response.data))
-                .catch((error) => console.error(error));
+        .then((response) => setUsuarios(response.data.content))
+        .catch((error) => console.error(error));
 }
 
-export async function buscarUsuarioPeloId(id, setUsuarios) {
+export async function buscarUsuarioPeloId(id, setNome, setCpf, setEmail, setSenha, setDataNascimento, setStatus) {
     await api.get(`/usuarios/${id}`)
-            .then((response) => setUsuarios(response.data))
-            .catch((error) => console.error(error));
+        .then((response) => {
+            setNome(response.data.nome);
+            setCpf(response.data.cpf);
+            setEmail(response.data.email);
+            setSenha(response.data.senha);
+            setDataNascimento(response.data.dataNascimento);
+            setStatus(response.data.status);
+        })
+        .catch((error) => console.error(error));
 }
 
-export async function cadastrarUsuario(usuario) {
+export async function cadastrarUsuario(usuario, navigate) {
     await api.post('/usuarios', usuario)
-            .then(() => {})
-            .catch((error) => console.error(error));
+        .then(() => navigate('/usuarios'))
+        .catch((error) => console.error(error));
 }
 
-export async function atualizarUsuario(id, usuario) {
+export async function atualizarUsuario(id, usuario, navigate) {
     await api.put(`/usuarios/${id}`, usuario)
-            .then(() => {})
-            .catch((error) => console.error(error));
+        .then(() => navigate("/usuarios"))
+        .catch((error) => console.error(error));
 }
 
 export async function deletarUsuario(id) {
     await api.delete(`/usuarios/${id}`)
-            .then(() => {})
-            .catch((error) => console.error(error));
+        .then(() => { })
+        .catch((error) => console.error(error));
 }
