@@ -1,16 +1,16 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import Cabecalho from "../../componentes/Cabecalho";
 import Rodape from "../../componentes/Rodape";
-import { use, useEffect, useState } from "react";
-import { listarProjetos } from "../../servicos/projetos";
+import { useEffect, useState } from "react";
 import { deletarUsuario } from "../../servicos/usuarios";
+import { listarTarefas } from "../../servicos/tarefas";
 
 function Tarefas() {
   const navigate = useNavigate();
   const [tarefas, setTarefas] = useState([]);
 
   useEffect(() => {
-    listarProjetos(setTarefas);
+    listarTarefas(setTarefas);
   }, []);
 
   const redirecionarParaNovaTarefa = () => {

@@ -3,7 +3,7 @@ import { api } from "./api";
 export async function listarUsuarios(setUsuarios) {
   await api
     .get("/usuarios")
-    .then((response) => setUsuarios(response.data))
+    .then((response) => setUsuarios(response.data.content))
     .catch((error) => console.error(error));
 }
 
