@@ -1,12 +1,14 @@
 import { use, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { buscarUsuarioPeloId } from "../../../servicos/usuarios";
+import { buscarUsuarioPeloId, listarUsuarios } from "../../../servicos/usuarios";
 import { atualizarTarefa, cadastrarTarefa } from "../../../servicos/tarefas";
 import Cabecalho from "../../../componentes/Cabecalho";
 import Rodape from "../../../componentes/Rodape";
 
 function FormularioTarefas() {
   const { id } = useParams();
+  const [usuarios, setUsuarios] = useState([]);
+  const [projetos, setProjetos] = useState([]);
   useEffect(() => {
     if (id) {
       buscarUsuarioPeloId(
@@ -19,6 +21,7 @@ function FormularioTarefas() {
         setProjeto
       );
     }
+    listarUsuarios(setUsuarios);
   }, []);
 
   const [titulo, setTitulo] = useState("");
@@ -95,7 +98,6 @@ function FormularioTarefas() {
               id="dataConclusao"
               value={dataConclusao}
               onChange={(e) => setDataConclusao(e.target.value)}
-              required
             />
           </div>
           <div className="col-md-4 col-12">
@@ -112,7 +114,15 @@ function FormularioTarefas() {
               <option disabled value="">
                 Escolha a opção...
               </option>
-              <option value={""}></option>
+              {usuarios.length === 0 ? (
+                <option disabled value="">Nenhum usuário cadastrado</option>
+              ) : (
+                usuarios.map((usuario) => (
+                  <option key={usuario.id} value={usuario.id}>
+                    {usuario.nome} ({usuario.email})
+                  </option>
+                ))
+              )}
             </select>
           </div>
           <div className="col-md-4 col-12">
@@ -129,7 +139,9 @@ function FormularioTarefas() {
               <option disabled value="">
                 Escolha uma opção...
               </option>
-              <option value={""}></option>
+              <option value={"BAIXA"}>Baixa</option>
+              <option value={"MEDIA"}>Média</option>
+              <option value={"ALTA"}>Alta</option>
             </select>
           </div>
           <div className="col-md-4 col-12">
@@ -146,7 +158,9 @@ function FormularioTarefas() {
               <option disabled value="">
                 Escolha uma opção...
               </option>
-              <option value={""}></option>
+              <option value={"PENDENTE"}>Pendente</option>
+              <option value={"FAZENDO"}>Fazendo</option>
+              <option value={"CONCLUIDO"}>Concluido</option>
             </select>
           </div>
           <div className="col-md-4 col-12">
@@ -163,7 +177,15 @@ function FormularioTarefas() {
               <option disabled value="">
                 Escolha uma opção...
               </option>
-              <option value={""}></option>
+              {projetos.length === 0 ? (
+                <option disabled value="">Nenhum projeto cadastrado</option>
+              ) : (
+                projetos.map((projeto) => (
+                  <option key={projeto.id} value={projeto.id}>
+                    {projeto.titulo}
+                  </option>
+                ))
+              )}
             </select>
           </div>
           <div className="col-12">
