@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { buscarUsuarioPeloId, listarUsuarios } from "../../../servicos/usuarios";
 import { atualizarTarefa, cadastrarTarefa } from "../../../servicos/tarefas";
@@ -24,7 +24,7 @@ function FormularioTarefas() {
     }
     listarUsuarios(setUsuarios);
     listarProjetos(setProjetos);
-  }, []);
+  }, [id]);
 
   const [titulo, setTitulo] = useState("");
   const [dataCriacao, setDataCriacao] = useState("");

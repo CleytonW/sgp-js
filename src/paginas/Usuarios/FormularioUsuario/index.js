@@ -13,7 +13,7 @@ function FormularioUsuario() {
     if (id) {
       buscarUsuarioPeloId(id, setNome, setCpf, setEmail, setSenha, setDataNascimento, setStatus);
     }
-  }, []);
+  }, [id]);
 
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");

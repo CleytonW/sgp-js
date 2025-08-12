@@ -4,16 +4,16 @@ import "./login.css";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email] = useState("");
+  const [senha] = useState("");
   const [ManterConectado, setManterConectado] = useState(true);
 
   const navigate = useNavigate();
 
-  const enviarFormulario = () => {
-    console.log({ email, senha, ManterConectado });
-    navigate("/home");
-  };
+  // const enviarFormulario = () => {
+  //   console.log({ email, senha, ManterConectado });
+  //   navigate("/home");
+  // };
 
   return (
     <div className="bg-container">

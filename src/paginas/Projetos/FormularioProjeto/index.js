@@ -12,7 +12,7 @@ function FormularioProjeto() {
       buscarProjetoPeloId(id, setNome, setDescricao, setResponsavel);
     }
     listarUsuarios(setUsuarios);
-  }, []);
+  }, [id]);
 
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
