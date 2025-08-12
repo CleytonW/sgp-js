@@ -51,11 +51,6 @@ src/
 ├── App.js # Componente raiz
 └── index.js # Ponto de entrada
 
-yaml
-Copiar
-Editar
-
----
 
 ## Como Executar Localmente
 
