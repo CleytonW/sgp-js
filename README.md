@@ -42,7 +42,7 @@ Foi desenvolvido como parte de um estudo de caso completo para consolidar habili
 ---
 
 ## Estrutura do Projeto
-
+```bash
 src/
 ├── components/ # Componentes reutilizáveis
 ├── pages/ # Páginas principais
@@ -50,47 +50,53 @@ src/
 ├── styles/ # Estilos customizados
 ├── App.js # Componente raiz
 └── index.js # Ponto de entrada
+```
 
 
 ## Como Executar Localmente
-
 ### Pré-requisitos
 - Node.js 18+  
 - NPM ou Yarn instalados
 
 ### Passos
+
 ```bash
 # Clone o repositório
 git clone https://github.com/CleytonW/sgp-js.git
+
+# Acesse a pasta do projeto
 cd sgp-js
-
-# Instale as dependências
+```
+### Instale as dependências
+```bash
 npm install
+```
 
-# Execute em modo desenvolvimento
+### Execute em modo desenvolvimento
+```bash
 npm start
+```
 Acesse em: http://localhost:3000
-
-Build para Produção
-bash
-Copiar
-Editar
+# Build para Produção
+```bash
 npm run build
+```
 O código final será gerado na pasta build/.
 
-Próximos Passos e Possibilidades de Evolução
+
+# Próximos Passos e Possibilidades de Evolução:
 Adicionar autenticação e autorização com JWT.
 
-Criar testes automatizados com Jest e React Testing Library.
+* Criar testes automatizados com Jest e React Testing Library.
 
-Implementar controle de estado global (Redux ou Context API).
+* Implementar controle de estado global (Redux ou Context API).
 
-Melhorar acessibilidade (A11Y) e SEO.
+* Melhorar acessibilidade (A11Y) e SEO.
 
-Deploy da aplicação em serviços como Vercel, Netlify ou GitHub Pages.
+* Deploy da aplicação em serviços como Vercel, Netlify ou GitHub Pages.
 
-Sobre o Back-end
-Este front-end consome a API desenvolvida no projeto SGP-API, construída em Java 17 + Spring Boot, com:
+#  Sobre o Back-end
+Este front-end consome a API desenvolvida no projeto [sgp-api](https://github.com/CleytonW/sgp-api), construída em Java 17 + Spring Boot, com:
 
 Banco de dados relacional (MySQL/PostgreSQL).
 
