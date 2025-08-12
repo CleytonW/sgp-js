@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# SGP-JS (Front-end)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Interface web do **Sistema de Gerenciamento de Projetos (SGP)**, desenvolvida em **React** e integrada a um back-end em **Java/Spring Boot**.  
+O objetivo é entregar uma aplicação moderna, responsiva e escalável, com boas práticas de desenvolvimento e tecnologias amplamente utilizadas no mercado.
 
-## Available Scripts
+> O back-end deste projeto está disponível em: [SGP-API (Java/Spring Boot)](https://github.com/CleytonW/sgp-api)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Visão Geral
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Este projeto implementa o front-end de um sistema para gerenciamento de projetos, permitindo visualizar, cadastrar, editar e excluir informações de forma prática.  
+Foi desenvolvido como parte de um estudo de caso completo para consolidar habilidades em **React**, **Bootstrap**, consumo de APIs REST e manipulação de dados no navegador.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Principais Recursos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Estrutura **SPA (Single Page Application)** com **React Router DOM** para navegação fluida.
+- Consumo de APIs REST com **Axios**, integrando ao back-end em Java/Spring Boot.
+- Layout responsivo com **Bootstrap 5**, garantindo boa experiência em desktop e dispositivos móveis.
+- Manipulação e formatação de datas com **date-fns**.
+- Código estruturado em componentes reutilizáveis.
+- Compatibilidade com navegadores modernos via **Browserslist**.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tecnologias Utilizadas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Front-end**
+- React 19
+- React Router DOM 7
+- Bootstrap 5
+- Axios
+- date-fns
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Ferramentas e Configuração**
+- Create React App (React Scripts)
+- ESLint
+- Browserslist
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Estrutura do Projeto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+src/
+├── components/ # Componentes reutilizáveis
+├── pages/ # Páginas principais
+├── services/ # Configuração de integração com API
+├── styles/ # Estilos customizados
+├── App.js # Componente raiz
+└── index.js # Ponto de entrada
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+yaml
+Copiar
+Editar
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Como Executar Localmente
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pré-requisitos
+- Node.js 18+  
+- NPM ou Yarn instalados
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Passos
+```bash
+# Clone o repositório
+git clone https://github.com/CleytonW/sgp-js.git
+cd sgp-js
 
-### Code Splitting
+# Instale as dependências
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Execute em modo desenvolvimento
+npm start
+Acesse em: http://localhost:3000
 
-### Analyzing the Bundle Size
+Build para Produção
+bash
+Copiar
+Editar
+npm run build
+O código final será gerado na pasta build/.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Próximos Passos e Possibilidades de Evolução
+Adicionar autenticação e autorização com JWT.
 
-### Making a Progressive Web App
+Criar testes automatizados com Jest e React Testing Library.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Implementar controle de estado global (Redux ou Context API).
 
-### Advanced Configuration
+Melhorar acessibilidade (A11Y) e SEO.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Deploy da aplicação em serviços como Vercel, Netlify ou GitHub Pages.
 
-### Deployment
+Sobre o Back-end
+Este front-end consome a API desenvolvida no projeto SGP-API, construída em Java 17 + Spring Boot, com:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Banco de dados relacional (MySQL/PostgreSQL).
 
-### `npm run build` fails to minify
+Estrutura RESTful.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Validação de dados e tratamento de erros.
+
+Integração com o front-end via JSON.

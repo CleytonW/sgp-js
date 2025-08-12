@@ -1,7 +1,7 @@
 import { use, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { buscarUsuarioPeloId, listarUsuarios } from "../../../servicos/usuarios";
-import { atualizarTarefa, cadastrarTarefa, listarTarefas } from "../../../servicos/tarefas";
+import { atualizarTarefa, cadastrarTarefa } from "../../../servicos/tarefas";
 import Cabecalho from "../../../componentes/Cabecalho";
 import Rodape from "../../../componentes/Rodape";
 import { listarProjetos } from "../../../servicos/projetos";
