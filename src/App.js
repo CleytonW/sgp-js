@@ -5,6 +5,8 @@ import FormularioUsuario from "./paginas/Usuarios/FormularioUsuario";
 import Erro404 from "./paginas/Erro404";
 import Projetos from "./paginas/Projetos";
 import FormularioProjeto from "./paginas/Projetos/FormularioProjeto";
+import Tarefas from "./paginas/Tarefas";
+import FormularioTarefas from "./paginas/Tarefas/FormularioTarefas";
 
 function App() {
   return (
@@ -17,6 +19,9 @@ function App() {
         <Route path="/projetos" element={<Projetos />} />
         <Route path="/projetos/novo" element={<FormularioProjeto />} />
         <Route path="/projetos/:id" element={<FormularioProjeto />} />
+        <Route path="/tarefas" element={<Tarefas />} />
+        <Route path="/tarefas/novo" element={<FormularioTarefas />} />
+        <Route path="/tarefas/:id" element={<FormularioTarefas />} />
         <Route path="*" element={<Erro404 />} />
       </Routes>
     </BrowserRouter>

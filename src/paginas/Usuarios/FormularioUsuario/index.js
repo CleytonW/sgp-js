@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Cabecalho from "../../../componentes/Cabecalho";
 import Rodape from "../../../componentes/Rodape";
 import { atualizarUsuario, buscarUsuarioPeloId, cadastrarUsuario } from "../../../servicos/usuarios";
@@ -13,7 +13,7 @@ function FormularioUsuario() {
     if (id) {
       buscarUsuarioPeloId(id, setNome, setCpf, setEmail, setSenha, setDataNascimento, setStatus);
     }
-  }, [])
+  }, []);
 
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
