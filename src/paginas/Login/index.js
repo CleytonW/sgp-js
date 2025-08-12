@@ -1,14 +1,14 @@
 import { useState } from "react";
 import logo from "../../assets/sgp_logo_vertical.png";
 import "./login.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const [email] = useState("");
-  const [senha] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [senha, setSenha] = useState("");
   const [ManterConectado, setManterConectado] = useState(true);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // const enviarFormulario = () => {
   //   console.log({ email, senha, ManterConectado });
